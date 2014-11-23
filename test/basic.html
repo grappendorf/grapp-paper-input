@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>grapp-paper-input basic tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <script src="../lib/web-component-tester/browser.js"></script>
+  <script src="../lib/coffee-script/extras/coffee-script.js"></script>
+
+  <link href="../grapp-paper-input.html" rel="import">
+</head>
+<body>
+
+  <grapp-paper-input id="element" value="Hello"></grapp-paper-input>
+
+  <script type="text/coffeescript">
+
+    describe 'basic functionality', ->
+
+      it 'should behave like a "paper-input"', ->
+        element = document.querySelector '#element'
+        expect(element.value).to.equal 'Hello'
+
+  </script>
+
+  <script>
+  </script>
+
+</body>
+</html>

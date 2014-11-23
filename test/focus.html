@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>grapp-paper-input focus tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <script src="../lib/web-component-tester/browser.js"></script>
+  <script src="../lib/coffee-script/extras/coffee-script.js"></script>
+  <script src="../lib/happen/happen.js"></script>
+
+  <link href="../grapp-paper-input.html" rel="import">
+</head>
+<body>
+
+  <grapp-paper-input id="element"></grapp-paper-input>
+
+  <script type="text/coffeescript">
+
+    describe '#focus', ->
+
+      it 'should gain the focus', ->
+        element = document.querySelector '#element'
+        inputElement = element.$.decorator.querySelector('input')
+        element.$.decorator.focused = false
+        element.focus()
+        expect(element.$.decorator.focused).to.be.true
+        expect(document.activeElement).to.equal element
+
+  </script>
+
+  <script>
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>grapp-paper-input type attribute tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <script src="../lib/web-component-tester/browser.js"></script>
+  <script src="../lib/coffee-script/extras/coffee-script.js"></script>
+
+  <link href="../grapp-paper-input.html" rel="import">
+</head>
+<body>
+
+  <grapp-paper-input id="default" value="Hello"></grapp-paper-input>
+
+  <grapp-paper-input id="with-type-attribute" value="Hello" type="password"></grapp-paper-input>
+
+  <script type="text/coffeescript">
+
+    describe 'when no type attribute value is specified', ->
+
+      it 'should have an input field type of "text"', ->
+        element = document.querySelector '#default'
+        inputElement = element.$.decorator.querySelector('input')
+        expect(inputElement.type).to.equal 'text'
+
+    describe 'when the type attribute is set to "password', ->
+
+      it 'should have an input field type of "password"', ->
+        element = document.querySelector '#with-type-attribute'
+        inputElement = element.$.decorator.querySelector('input')
+        expect(inputElement.type).to.equal 'password'
+
+  </script>
+
+  <script>
+  </script>
+
+</body>
+</html>

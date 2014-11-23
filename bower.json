@@ -1,0 +1,43 @@
+{
+  "name": "grapp-paper-input",
+  "description": "A Polymer paper-input web component with some customizations",
+  "version": "0.0.0",
+  "main": "grapp-paper-input.html",
+  "license": "MIT",
+  "ignore": [
+    "bin",
+    "build",
+    "lib",
+    "node_modules",
+    "src",
+    "test",
+    "tmpl",
+    "package.json",
+    "**/.*",
+    "**/*.log",
+    "**/*.sublime-*"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "coyoho",
+    "grappendorf"
+  ],
+  "authors": [
+    "Dirk Grappendorf <dirk@grappendorf.net> (http://www.grappendorf.net)"
+  ],
+  "homepage": "https://github.com/grappendorf/grapp-paper-input",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grappendorf/grapp-paper-input.git"
+  },
+  "dependencies": {
+    "paper-input": "Polymer/paper-input#^0.5.1"
+  },
+  "devDependencies": {
+    "coffee-script": "latest",
+    "jquery": "latest",
+    "web-component-tester": "Polymer/web-component-tester#latest",
+    "happen": "latest"
+  }
+}

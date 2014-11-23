@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>grapp-paper-input web component</title>
+
+  <script src="lib/webcomponentsjs/webcomponents.min.js"></script>
+  <link href="grapp-paper-input.html" rel="import">
+
+</head>
+
+<body>
+
+  <h1>grapp-paper-input web component</h1>
+
+  <h2>A Polymer paper-input web component with some customizations</h2>
+
+  <p>
+    <a href="test/index.html">Click here to run the tests...</a>
+  </p>
+  <p>
+    <a href="README.md">Click here to read the documentation...</a>
+  </p>
+  <p>
+    <a href="CHANGELOG.md">Click here to read the changelog...</a>
+  </p>
+
+  <h2>Demo</h2>
+
+  <polymer-element name="demo-element">
+
+    <template>
+      <div>Enter some text and press enter:</div>
+      <grapp-paper-input id="input" on-grapp-enter="{{onEnter}}"></grapp-paper-input>
+      <div id="enteredText"></div>
+    </template>
+
+    <script>
+      Polymer('demo-element', {
+        ready: function(e) {
+          this.$.input.focus();
+        },
+        onEnter: function(e) {
+          this.$.enteredText.innerHTML += '<div>You entered: ' + e.detail + '</dv>';
+        }
+      });
+    </script>
+
+  </polymer>
+
+  <demo-element></demo-element>
+
+  <script src="//localhost:35729/livereload.js"></script>
+
+</body>
