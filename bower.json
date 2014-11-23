@@ -1,7 +1,7 @@
 {
   "name": "grapp-paper-input",
   "description": "A Polymer paper-input web component with some customizations",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "grapp-paper-input.html",
   "license": "MIT",
   "ignore": [
