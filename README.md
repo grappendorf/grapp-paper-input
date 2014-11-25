@@ -8,29 +8,28 @@ information about the base element.
 Extends
 -------
 
-  * [paper-input](https://www.polymer-project.org/docs/elements/paper-elements.html#paper-input)
-
+  * [**paper-input**](https://www.polymer-project.org/docs/elements/paper-elements.html#paper-input)
 
 Attributes
 ----------
 
-  * type
+  * **type**
 
-    type: string
-    default: 'text'
+    - *type:* string
+    - *default:* 'text'
 
     Determines the type attributes of the <input> tag.
 
 Methods
 -------
 
-  * focus()
+  * **focus()**
 
     Programmatically set the focus to this paper input.
 
 Events
 ------
 
-  * grapp-enter
+  * **grapp-enter**
 
     Fired when the enter key was pressed inside the paper input.
