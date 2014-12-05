@@ -1,18 +1,18 @@
 module.exports = function(grunt) {
 
   var mapDotDotUrlToLib = function(req, res, next) {
-    url_parts = req.url.split('/');
+    var url_parts = req.url.split('/');
     if (url_parts.length > 2 && ['lib', 'test'].indexOf(url_parts[1]) == -1) {
       req.url = '/lib' + req.url;
     }
     return next();
-  }
+  };
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('bower.json'),
 
     copyrightSince: function(year) {
-      now = new Date().getFullYear();
+      var now = new Date().getFullYear();
       return year + (now > year ? '-' + now : '');
     },
 
@@ -33,14 +33,13 @@ module.exports = function(grunt) {
       }
     },
 
-    sass: {
+    less: {
       dist: {
-        files: grunt.file.expandMapping(['src/*.scss'], 'build/', {
+        files: grunt.file.expandMapping(['src/*.less'], 'build/', {
           rename: function(dest, src) {
-            return dest + src.replace(/src\/(.+)\.scss$/, '$1.css');
+            return dest + src.replace(/src\/(.+)\.less$/, '$1.css');
           }
-        }),
-        expand: false
+        })
       }
     },
 
@@ -73,9 +72,6 @@ module.exports = function(grunt) {
             copyright: grunt.file.read('tmpl/copyright.tmpl')
           }
         }
-      },
-      options: {
-        beautify: true
       }
     },
 
@@ -94,8 +90,8 @@ module.exports = function(grunt) {
 
     watch: {
       stylesheets: {
-        files: 'src/*.scss',
-        tasks: ['sass', 'htmlbuild']
+        files: 'src/*.less',
+        tasks: ['less', 'htmlbuild']
       },
       scripts: {
         files: 'src/*.coffee',
@@ -110,7 +106,7 @@ module.exports = function(grunt) {
         tasks: []
       },
       options: {
-        livereload: true,
+        livereload: true
       }
     },
 
@@ -140,13 +136,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-html-build');
-  grunt.loadNpmTasks('grunt-sass');
 
   grunt.registerTask('build', 'Compile all assets and create the distribution files',
-    ['sass', 'coffeelint', 'coffee', 'htmlbuild']);
+    ['less', 'coffeelint', 'coffee', 'htmlbuild']);
 
   grunt.task.renameTask('bump', 'bumpversion');
 

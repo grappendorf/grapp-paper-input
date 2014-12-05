@@ -13,9 +13,9 @@
     "grunt-contrib-connect": "latest",
     "grunt-contrib-coffee": "latest",
     "grunt-contrib-copy": "latest",
+    "grunt-contrib-less": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-conventional-changelog": "latest",
-    "grunt-html-build": "latest",
-    "grunt-sass": "latest"
+    "grunt-html-build": "latest"
   }
 }

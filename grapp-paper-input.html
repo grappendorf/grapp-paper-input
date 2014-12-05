@@ -1,3 +1,4 @@
+ 
 <!--
 Copyright (c) 2014 Dirk Grappendorf, www.grappendorf.net. All rights reserved.
 This code may only be used under the MIT style license found in the file LICENSE.txt.
@@ -12,29 +13,28 @@ Description: A Polymer paper-input web component with some customizations
 
 <polymer-element name="grapp-paper-input" extends="paper-input" attributes="type">
 
-    <script type="text/javascript">
-        (function() {
-            Polymer('grapp-paper-input', {
-                type: 'text',
-                ready: function() {
-                    var inputElement;
-                    inputElement = this.$.decorator.querySelector('input');
-                    inputElement.type = this.type;
-                    return inputElement.addEventListener('keypress', (function(e) {
-                        if (e.keyCode === 13) {
-                            return this.async(function() {
-                                return this.fire('grapp-enter', this.value);
-                            });
-                        }
-                    }).bind(this));
-                },
-                focus: function() {
-                    this.$.decorator.focusAction();
-                    return this.$.decorator.querySelector('input').focus();
-                }
-            });
+<script type="text/javascript">(function() {
+  Polymer('grapp-paper-input', {
+    type: 'text',
+    ready: function() {
+      var inputElement;
+      inputElement = this.$.decorator.querySelector('input');
+      inputElement.type = this.type;
+      return inputElement.addEventListener('keypress', (function(e) {
+        if (e.keyCode === 13) {
+          return this.async(function() {
+            return this.fire('grapp-enter', this.value);
+          });
+        }
+      }).bind(this));
+    },
+    focus: function() {
+      this.$.decorator.focusAction();
+      return this.$.decorator.querySelector('input').focus();
+    }
+  });
 
-        }).call(this);
-    </script>
+}).call(this);
+</script>
 
 </polymer-element>
