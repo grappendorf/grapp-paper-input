@@ -18,6 +18,7 @@ Description: A Polymer paper-input web component with some customizations
     type: 'text',
     ready: function() {
       var inputElement;
+      this["super"]();
       inputElement = this.$.decorator.querySelector('input');
       inputElement.type = this.type;
       return inputElement.addEventListener('keypress', (function(e) {

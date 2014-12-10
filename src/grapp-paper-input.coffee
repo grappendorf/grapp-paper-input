@@ -3,6 +3,7 @@ Polymer 'grapp-paper-input',
   type: 'text'
 
   ready: ->
+    this.super()
     inputElement = @$.decorator.querySelector('input')
     inputElement.type = @type
     inputElement.addEventListener 'keypress', ((e) ->
