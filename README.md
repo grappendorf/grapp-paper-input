@@ -5,6 +5,9 @@ A Polymer paper-input web component with some customizations.
 See https://www.polymer-project.org/docs/elements/paper-elements.html#paper-input for more
 information about the base element.
 
+Compatible with Polymer 0.5
+
+
 Extends
 -------
 
