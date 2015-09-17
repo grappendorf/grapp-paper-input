@@ -1,27 +1,14 @@
 grapp-paper-input
 =================
 
-A Polymer paper-input web component with some customizations.
-See https://www.polymer-project.org/docs/elements/paper-elements.html#paper-input for more
+A Polymer paper-input web component with some customizations:
+* It fires an event if the enter key is pressed
+* You can programatically set the focus on the element by calling focus(). 
+See [https://elements.polymer-project.org/elements/paper-input]() for more
 information about the base element.
 
-Compatible with Polymer 0.5
+Compatible with Polymer 1.0+
 
-
-Extends
--------
-
-  * [**paper-input**](https://www.polymer-project.org/docs/elements/paper-elements.html#paper-input)
-
-Attributes
-----------
-
-  * **type**
-
-    - *type:* string
-    - *default:* 'text'
-
-    Determines the type attributes of the <input> tag.
 
 Methods
 -------
@@ -33,6 +20,6 @@ Methods
 Events
 ------
 
-  * **grapp-enter**
+  * **grapp-paper-input-enter**
 
     Fired when the enter key was pressed inside the paper input.

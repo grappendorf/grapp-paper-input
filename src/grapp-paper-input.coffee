@@ -1,16 +1,17 @@
-Polymer 'grapp-paper-input',
+Polymer
 
-  type: 'text'
+  is: 'grapp-paper-input'
+
+  behaviors: [
+      Polymer.IronFormElementBehavior,
+      Polymer.PaperInputBehavior,
+      Polymer.IronControlState
+  ]
 
   ready: ->
-    this.super()
-    inputElement = @$.decorator.querySelector('input')
-    inputElement.type = @type
-    inputElement.addEventListener 'keypress', ((e) ->
+    @$.input.addEventListener 'keypress', (e) =>
       if e.keyCode == 13
-        @async -> @fire 'grapp-enter', @value
-    ).bind @
+        @async -> @fire 'grapp-paper-input-enter', @value
 
   focus: ->
-    @$.decorator.focusAction()
-    @$.decorator.querySelector('input').focus()
+    @$.input.focus()

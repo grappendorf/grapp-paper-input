@@ -1,36 +1,38 @@
 <!doctype html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>grapp-paper-input enter key press tests</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
+  <script src='../lib/webcomponentsjs/webcomponents-lite.min.js'></script>
   <script src="../lib/web-component-tester/browser.js"></script>
+  <script src="../lib/test-fixture/test-fixture-mocha.js"></script>
   <script src="../lib/coffee-script/extras/coffee-script.js"></script>
   <script src="../lib/happen/happen.js"></script>
-
-  <link href="../grapp-paper-input.html" rel="import">
+  <link rel="import" href="../lib/test-fixture/test-fixture.html">
+  <link rel="import" href="../build/grapp-paper-input.html">
 </head>
+
 <body>
 
-  <grapp-paper-input id="element" value="Hello"></grapp-paper-input>
+  <test-fixture id="element">
+    <template>
+      <grapp-paper-input value="Hello"></grapp-paper-input>
+    </template>
+  </test-fixture>
 
   <script type="text/coffeescript">
 
     describe 'when the enter key is pressed', ->
 
       it 'should fire a "grapp-enter" event', (done) ->
-        element = document.querySelector '#element'
-        inputElement = element.$.decorator.querySelector('input')
-        element.addEventListener 'grapp-enter', ->
+        element = fixture 'element'
+        element.addEventListener 'grapp-paper-input-enter', ->
           done()
-        happen.keypress inputElement, keyCode: 13
+        happen.keypress element.$$('input'), keyCode: 13
 
-  </script>
-
-  <script>
   </script>
 
 </body>
+
 </html>

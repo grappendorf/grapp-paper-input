@@ -31,12 +31,13 @@
     "url": "git://github.com/grappendorf/grapp-paper-input.git"
   },
   "dependencies": {
-    "paper-input": "Polymer/paper-input#^0.5.1"
+    "paper-input": "PolymerElements/paper-input#^1.0.0"
   },
   "devDependencies": {
-    "coffee-script": "latest",
-    "jquery": "latest",
-    "web-component-tester": "Polymer/web-component-tester#latest",
-    "happen": "latest"
+    "coffee-script": "^1.10.0",
+    "jquery": "^2.1.4",
+    "happen": "latest",
+    "web-component-tester": "Polymer/web-component-tester#3.3.21",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0"
   }
 }

@@ -2,12 +2,9 @@
 <html>
 
 <head>
-
   <title>grapp-paper-input web component</title>
-
-  <script src="lib/webcomponentsjs/webcomponents.min.js"></script>
-  <link href="grapp-paper-input.html" rel="import">
-
+  <script src='lib/webcomponentsjs/webcomponents-lite.min.js'></script>
+  <link href="build/grapp-paper-input.html" rel="import">
 </head>
 
 <body>
@@ -19,37 +16,34 @@
   <p>
     <a href="test/index.html">Click here to run the tests...</a>
   </p>
+
   <p>
     <a href="README.md">Click here to read the documentation...</a>
   </p>
+
   <p>
     <a href="CHANGELOG.md">Click here to read the changelog...</a>
   </p>
 
   <h2>Demo</h2>
 
-  <polymer-element name="demo-element">
+  <template is="dom-bind">
+    <div>Enter some text and press enter:</div>
+    <grapp-paper-input id="input1" on-grapp-paper-input-enter="onEnter"></grapp-paper-input>
+    <grapp-paper-input id="input2" on-grapp-paper-input-enter="onEnter"></grapp-paper-input>
+    <grapp-paper-input id="input3" type="password" on-grapp-paper-input-enter="onEnter"></grapp-paper-input>
+    <div id="enteredText"></div>
+  </template>
 
-    <template>
-      <div>Enter some text and press enter:</div>
-      <grapp-paper-input id="input" on-grapp-enter="{{onEnter}}"></grapp-paper-input>
-      <div id="enteredText"></div>
-    </template>
-
-    <script>
-      Polymer('demo-element', {
-        ready: function(e) {
-          this.$.input.focus();
-        },
-        onEnter: function(e) {
-          this.$.enteredText.innerHTML += '<div>You entered: ' + e.detail + '</dv>';
-        }
-      });
-    </script>
-
-  </polymer>
-
-  <demo-element></demo-element>
+  <script>
+    var t = document.querySelector('template');
+    t.onEnter = function(e) {
+      this.$.enteredText.innerHTML += '<div>You entered: ' + e.detail + '</dv>';
+    };
+    window.addEventListener('WebComponentsReady', function() {
+      document.querySelector('#input2').focus();
+    });
+  </script>
 
   <script src="//localhost:35729/livereload.js"></script>
 
